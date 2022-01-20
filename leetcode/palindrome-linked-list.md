@@ -41,7 +41,7 @@ public class Tests {
 
     @Test
     public void testPalindromeEmpty() {
-        ListNode node = new ListNode();
+        ListNode node = null;
         Solution solution = new Solution();
         Assertions.assertTrue(solution.isPalindrome(node));
     }
