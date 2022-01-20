@@ -6,6 +6,66 @@
 
 https://leetcode.com/problems/merge-two-sorted-lists/
 
+<details><summary>Test Cases</summary><blockquote>
+    
+```java
+public class Tests {
+    @Test
+    public void testMerge() {
+        ListNode node1 = new ListNode(1, new ListNode(2, new ListNode(3)));
+        ListNode node2 = new ListNode(4, new ListNode(5));
+        Solution solution = new Solution();
+        ListNode head = solution.mergeTwoLists(node1, node2);
+        ListNode res = new ListNode(1, new ListNode(2,  new ListNode(3,  new ListNode(4, new ListNode(5)))));
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
+    }
+
+    @Test
+    public void testMerge2() {
+        ListNode node1 = new ListNode(1, new ListNode(5, new ListNode(10)));
+        ListNode node2 = new ListNode(2, new ListNode(7, new ListNode(9)));
+        Solution solution = new Solution();
+        ListNode head = solution.mergeTwoLists(node1, node2);
+        ListNode res = new ListNode(1, new ListNode(2,  new ListNode(5,  new ListNode(7, new ListNode(9, new ListNode(10))))));
+        for (int i = 0; i < 6; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
+    }
+
+    @Test
+    public void testMergeOneEmpty() {
+        ListNode node1 = new ListNode(3, new ListNode(4, new ListNode(5)));
+        ListNode node2 = null;
+        Solution solution = new Solution();
+        ListNode head = solution.mergeTwoLists(node1, node2);
+        ListNode res = new ListNode(3, new ListNode(4, new ListNode(5)));
+        for (int i = 0; i < 3; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
+    }
+
+    @Test
+    public void testMergeBothEmpty() {
+        ListNode node1 = null;
+        ListNode node2 = null;
+        Solution solution = new Solution();
+        ListNode head = solution.mergeTwoLists(node1, node2);
+        ListNode res = null;
+        Assertions.assertEquals(head, res);
+    }
+}
+```
+  
+</blockquote></details>
+
 ```java
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
