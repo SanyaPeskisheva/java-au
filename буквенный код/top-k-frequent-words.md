@@ -6,6 +6,29 @@
 
 https://leetcode.com/problems/top-k-frequent-words 
 
+<details><summary>Test Cases</summary><blockquote>
+
+``` java
+import org.junit.jupiter.api.BeforeEach;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+class SolutionTest {
+    private Solution sol;
+    @BeforeEach
+    void setUp() {
+        sol = new Solution();
+    }
+    @org.junit.jupiter.api.Test
+    void testTopKFrequent() {
+        String[] words = new String[]{"the","day","is","sunny","the","the","the","sunny","is","is"};
+        List<String> expected = List.of("the", "is", "sunny", "day");
+        assertEquals(expected, sol.topKFrequent(words, 4));
+    }
+}
+```
+
+</blockquote></details>
+
 ```java
 class Solution {
     public List<String> topKFrequent(String[] words, int k) {
