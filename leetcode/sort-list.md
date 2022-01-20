@@ -5,6 +5,49 @@
 ## sort-list
 
 https://leetcode.com/problems/sort-list/
+
+<details><summary>Test Cases</summary><blockquote>
+ 
+```java
+public class Tests {
+    @Test
+    public void testSortPositive() {
+        ListNode node = new ListNode(4, new ListNode(2, new ListNode(3, new ListNode(1))));
+        ListNode res = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+        Solution solution = new Solution();
+        ListNode head = solution.sortList(node);
+        for (int i = 0; i < 4; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
+    }
+
+    @Test
+    public void testSortNegative() {
+        ListNode node = new ListNode(-2, new ListNode(4, new ListNode(0, new ListNode(1,  new ListNode(-9)))));
+        ListNode res = new ListNode(-9, new ListNode(-2, new ListNode(0, new ListNode(1,  new ListNode(4)))));
+        Solution solution = new Solution();
+        ListNode head = solution.sortList(node);
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
+    }
+
+    @Test
+    public void testSortEmpty() {
+        ListNode node = new ListNode();
+        ListNode res = new ListNode();
+        Solution solution = new Solution();
+        ListNode head = solution.sortList(node);
+        Assertions.assertEquals(head.val, res.val);
+    }
+}
+```
+ 
+</blockquote></details>
  
 ```java
 class Solution {
