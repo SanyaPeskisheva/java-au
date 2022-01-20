@@ -38,13 +38,13 @@ public class Tests {
 
     @Test
     public void testMiddleEmpty() {
-        ListNode node = new ListNode();
-        ListNode res = new ListNode();
+        ListNode node = null;
+        ListNode res = null;
         Solution solution = new Solution();
         ListNode head = solution.middleNode(node);
-        Assertions.assertEquals(head.val, res.val);
+        Assertions.assertEquals(head, res);
     }
-}        
+}       
 ```
     
 </blockquote></details>
