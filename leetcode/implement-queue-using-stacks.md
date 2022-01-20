@@ -6,6 +6,38 @@
 
 https://leetcode.com/problems/implement-queue-using-stacks/
 
+<details><summary>Test Cases</summary><blockquote>
+ 
+```java
+public class Tests {
+    @Test
+    public void test() {
+        MyQueue q = new MyQueue();
+        Assertions.assertTrue(q.empty());
+        q.push(1);
+        Assertions.assertEquals(q.peek(), 1);
+        q.push(2);
+        Assertions.assertEquals(q.peek(), 1);
+        q.push(3);
+        Assertions.assertEquals(q.peek(), 1);
+        Assertions.assertFalse(q.empty());
+        q.pop();
+        Assertions.assertEquals(q.peek(), 2);
+        q.push(4);
+        Assertions.assertEquals(q.peek(), 2);
+        Assertions.assertFalse(q.empty());
+        q.pop();
+        Assertions.assertEquals(q.peek(), 3);
+        q.pop();
+        Assertions.assertEquals(q.peek(), 4);
+        q.pop();
+        Assertions.assertTrue(q.empty());
+    }
+}    
+```
+  
+</blockquote></details>    
+
 ```java
 class MyQueue {
     private Deque<Integer> addS = new LinkedList<>();
