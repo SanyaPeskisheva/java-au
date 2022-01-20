@@ -38,11 +38,24 @@ public class Tests {
 
     @Test
     public void testSortEmpty() {
-        ListNode node = new ListNode();
-        ListNode res = new ListNode();
+        ListNode node = null;
+        ListNode res = null;
         Solution solution = new Solution();
         ListNode head = solution.sortList(node);
-        Assertions.assertEquals(head.val, res.val);
+        Assertions.assertEquals(head, res);
+    }
+
+    @Test
+    public void testSortRepeat() {
+        ListNode node = new ListNode(2, new ListNode(2, new ListNode(2)));
+        ListNode res = new ListNode(2, new ListNode(2, new ListNode(2)));
+        Solution solution = new Solution();
+        ListNode head = solution.sortList(node);
+        for (int i = 0; i < 3; i++) {
+            Assertions.assertEquals(head.val, res.val);
+            head = head.next;
+            res = res.next;
+        }
     }
 }
 ```
